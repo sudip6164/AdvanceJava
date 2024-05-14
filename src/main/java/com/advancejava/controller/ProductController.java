@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -135,11 +136,18 @@ public class ProductController {
 		
 		@GetMapping("/productDetails/{productId}")
 		public String ProductDetailsPage(@PathVariable int productId, @ModelAttribute User u, Model model,HttpServletRequest request) {
-		
 			Product product = productRepository.getById(productId);
 			model.addAttribute("p", product);
 			return "productDetails.html";
 		}
 		
+	    // New method to filter products by category
+	    @GetMapping("/shop/category/{category}")
+	    public String shopByCategory(@PathVariable String category, Model model) {
+	        List<Product> productsByCategory = productRepository.findByCategory(category);
+	        model.addAttribute("productList", productsByCategory);
+	        return "shop.html";
+	    }
+
 }
 	 

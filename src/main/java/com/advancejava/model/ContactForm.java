@@ -9,17 +9,17 @@ import jakarta.persistence.Id;
 public class ContactForm {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int contacttId;
+	private int contactId;
     private String name;
     private String email;
     private String subject;
     private String message;
     
-	public int getContacttId() {
-		return contacttId;
+	public int getContactId() {
+		return contactId;
 	}
 	public void setContacttId(int contacttId) {
-		this.contacttId = contacttId;
+		this.contactId = contacttId;
 	}
 	public String getName() {
 		return name;

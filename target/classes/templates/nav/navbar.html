@@ -92,7 +92,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="/" class="active-header-button">Home</a></li>
+								<li><a href="/">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i
 										class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
@@ -109,28 +109,6 @@
 				</div>
 			</div>
 		</div>
-		<script>
-
-		document.addEventListener("DOMContentLoaded", function() {
-		    // Get current URL path and assign 'active' class to nav link that matches current path
-		    var path = window.location.pathname;
-		    path = path.replace(/\/$/, ""); // Remove trailing slash
-		    path = decodeURIComponent(path);
-
-		    var navLinks = document.querySelectorAll('.navbar-nav li a'); // Adjust selector if needed
-		    navLinks.forEach(function(link) {
-		        if (path === link.getAttribute('href')) {
-		            link.closest('li').classList.add('active'); // Set the parent <li> to active
-		            link.classList.add('active-header-button'); // Add the class to the active header button
-		        } else {
-		            link.closest('li').classList.remove('active');
-		            link.classList.remove('active-header-button'); // Remove the class from inactive buttons
-		        }
-		    });
-		});
-
-		</script>
-
 		<!--/header-bottom-->
 	</header>
 	<!--/header-->

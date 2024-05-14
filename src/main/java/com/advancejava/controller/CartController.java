@@ -58,4 +58,14 @@ public class CartController {
         }
         return "redirect:/cart";
     }
+    
+    @GetMapping("/checkout")
+    public String checkoutPage(Model model) {
+    	if (session.getAttribute("activeUser") == null) {
+			return "redirect:/login?cartnotlogged=true";  // Redirect to login page if not logged in
+        }
+    	List<Cart> cart = (List<Cart>) session.getAttribute("cart");
+        model.addAttribute("cart", cart);
+        return "checkout.html";
+    }
 }
